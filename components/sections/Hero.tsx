@@ -57,10 +57,10 @@ export function Hero() {
           className="object-cover hero-media"
         />
 
-        {/* Web-optimized faststart video */}
+        {/* Desktop Web Video (Widescreen faststart video) */}
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out"
+          className="hidden sm:block absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out"
           style={{ opacity: videoReady ? 1 : 0 }}
           autoPlay
           muted
@@ -72,6 +72,20 @@ export function Hero() {
         >
           <source src="/hero-web.mp4" type="video/mp4" />
           <source src="/hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Mobile Video (Vertical crop faststart video for perfect mobile screen fitting) */}
+        <video
+          className="block sm:hidden absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-out"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/hero-poster.jpg"
+        >
+          <source src="/hero-mobile.mp4" type="video/mp4" />
+          <source src="/hero-web.mp4" type="video/mp4" />
         </video>
 
         {/* Delicate Gradient Scrim — Video background remains bright & visible */}
