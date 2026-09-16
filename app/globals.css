@@ -8,43 +8,72 @@
 @import "@fontsource/inter/700.css";
 
 :root {
-  /* Core palette — Navy / Marigold / Paper, per brief */
-  --color-navy-950: #071d40;
-  --color-navy-900: #0b2e63;
-  --color-navy-700: #1e4c8a;
-  --color-navy-100: #e7edf7;
-
-  --color-gold-600: #c98f02;
-  --color-gold-500: #f2b705;
-  --color-gold-100: #fdf1cd;
-
+  /* Premium Glossy White / Light Theme Palette */
   --color-paper: #ffffff;
-  --color-mist: #f6f8fb;
+  --color-canvas: #fafbfe;
+  --color-mist: #f4f6fa;
+  --color-subtle: #edf0f5;
 
-  --color-ink-900: #1f2430;
-  --color-ink-600: #5b6472;
-  --color-ink-300: #b9c0cc;
+  /* Institutional School Brand Colors (derived from logo) */
+  --color-navy-950: #0a2244;
+  --color-navy-900: #0f3c78;
+  --color-navy-700: #155e9e;
+  --color-navy-100: #e8f0fa;
+
+  /* Teal / Ocean Brand Accent */
+  --color-teal-600: #0284a6;
+  --color-teal-500: #06b6d4;
+  --color-teal-100: #e0f7fa;
+
+  /* Gold / Amber Accent (from logo wreath) */
+  --color-gold-600: #d97706;
+  --color-gold-500: #f59e0b;
+  --color-gold-400: #fbbf24;
+  --color-gold-100: #fef3c7;
+
+  /* Typography Colors — Rich Charcoal and Slate */
+  --color-ink-950: #091426;
+  --color-ink-900: #132238;
+  --color-ink-600: #475569;
+  --color-ink-400: #94a3b8;
+  --color-ink-300: #cbd5e1;
+
+  /* Borders & Glass */
+  --color-line: rgba(15, 60, 120, 0.1);
+  --color-line-subtle: rgba(15, 60, 120, 0.05);
 
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {
+  --color-paper: var(--color-paper);
+  --color-canvas: var(--color-canvas);
+  --color-mist: var(--color-mist);
+  --color-subtle: var(--color-subtle);
+
   --color-navy-950: var(--color-navy-950);
   --color-navy-900: var(--color-navy-900);
   --color-navy-700: var(--color-navy-700);
   --color-navy-100: var(--color-navy-100);
 
+  --color-teal-600: var(--color-teal-600);
+  --color-teal-500: var(--color-teal-500);
+  --color-teal-100: var(--color-teal-100);
+
   --color-gold-600: var(--color-gold-600);
   --color-gold-500: var(--color-gold-500);
+  --color-gold-400: var(--color-gold-400);
   --color-gold-100: var(--color-gold-100);
 
-  --color-paper: var(--color-paper);
-  --color-mist: var(--color-mist);
-
+  --color-ink-950: var(--color-ink-950);
   --color-ink-900: var(--color-ink-900);
   --color-ink-600: var(--color-ink-600);
+  --color-ink-400: var(--color-ink-400);
   --color-ink-300: var(--color-ink-300);
+
+  --color-line: var(--color-line);
+  --color-line-subtle: var(--color-line-subtle);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -58,22 +87,114 @@ body {
   background: var(--color-paper);
   color: var(--color-ink-900);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+/* ==========================================================================
+   GLOSSY DESIGN SYSTEM UTILITIES
+   ========================================================================== */
+
+/* Frosted Glass Panels */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -8px rgba(15, 60, 120, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(15, 60, 120, 0.09);
+  box-shadow: 0 4px 20px -2px rgba(15, 60, 120, 0.04), 0 1px 3px 0 rgba(15, 60, 120, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(15, 60, 120, 0.22);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -8px rgba(15, 60, 120, 0.12), 0 4px 12px -2px rgba(15, 60, 120, 0.04);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 50px -12px rgba(10, 34, 68, 0.15);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px -2px rgba(15, 60, 120, 0.08);
+  transition: all 0.2s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 60, 120, 0.25);
+  box-shadow: 0 6px 20px -4px rgba(15, 60, 120, 0.16);
+  transform: translateY(-1px);
+}
+
+.glossy-border {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Brand Gradients */
+.brand-gradient {
+  background: linear-gradient(135deg, #0f3c78 0%, #155e9e 60%, #0284a6 100%);
+}
+
+.brand-gradient-hover:hover {
+  background: linear-gradient(135deg, #0a2244 0%, #0f3c78 60%, #155e9e 100%);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #0f3c78 0%, #155e9e 50%, #0284a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.soft-glow {
+  box-shadow: 0 0 40px -10px rgba(15, 60, 120, 0.18);
+}
+
+.soft-gold-glow {
+  box-shadow: 0 0 30px -6px rgba(245, 158, 11, 0.25);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #0f3c78;
+  background: rgba(15, 60, 120, 0.06);
+  border: 1px solid rgba(15, 60, 120, 0.12);
+  backdrop-filter: blur(8px);
 }
 
 /* Skip link */
@@ -92,20 +213,30 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
 }
 
-/* Hero background — slow, subtle cinematic zoom-out */
+/* Hero background animation */
 @keyframes hero-zoom {
   from {
-    transform: scale(1.08);
+    transform: scale(1.05);
   }
   to {
     transform: scale(1);
   }
 }
 .hero-media {
-  animation: hero-zoom 12s ease-out forwards;
+  animation: hero-zoom 10s ease-out forwards;
   will-change: transform;
 }
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
   .hero-media {
     animation: none;
   }

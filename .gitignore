@@ -35,5 +35,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# temporary hero build artifacts
+public/hero-optimized.mp4
+public/hero-web.mp4
+
 # typescript
 *.tsbuildinfo

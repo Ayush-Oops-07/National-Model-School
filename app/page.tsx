@@ -10,9 +10,7 @@ import { AdmissionsCta } from "@/components/sections/AdmissionsCta";
 import { Contact } from "@/components/sections/Contact";
 import { NoticesSection } from "@/components/notices/NoticesSection";
 
-// Below-the-fold sections with heavier client-side logic (scroll-linked
-// motion, masonry + lightbox) are code-split so they don't add to the
-// critical initial bundle.
+// Below-the-fold sections with heavier client-side logic are code-split
 const Academics = dynamic(() =>
   import("@/components/sections/Academics").then((m) => m.Academics)
 );
@@ -27,12 +25,12 @@ export default function Home() {
       <main id="main" className="flex-1">
         <Hero />
         <About />
-        <NoticesSection />
         <Academics />
         <WhyChooseUs />
         <Facilities />
         <Leadership />
         <Gallery />
+        <NoticesSection />
         <AdmissionsCta />
         <Contact />
       </main>

@@ -56,17 +56,17 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="flex flex-col items-center gap-3 rounded-2xl bg-navy-100 p-8 text-center"
+        className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-white p-8 text-center shadow-xs"
       >
-        <CheckCircle2 className="text-navy-900" size={32} />
-        <p className="font-display text-lg font-bold text-navy-950">
+        <CheckCircle2 className="text-emerald-600" size={32} />
+        <p className="font-display text-lg font-bold text-ink-950">
           Thank you, {form.name.split(" ")[0]}!
         </p>
-        <p className="text-sm text-ink-600">
-          WhatsApp should now be open in a new tab with your message ready —
+        <p className="text-sm text-ink-600 max-w-md">
+          WhatsApp should now be open in a new tab with your message ready &mdash;
           just tap <strong>Send</strong> there to reach our admissions team
           directly. You can also call us at{" "}
-          <a href={school.phoneHref} className="font-semibold text-navy-900">
+          <a href={school.phoneHref} className="font-semibold text-navy-950 underline">
             {school.phone}
           </a>
           .
@@ -77,7 +77,7 @@ export function ContactForm() {
             setForm(initialState);
             setSubmitted(false);
           }}
-          className="mt-2 text-sm font-semibold text-navy-900 underline underline-offset-4"
+          className="mt-2 text-xs font-semibold text-navy-950 underline underline-offset-4"
         >
           Send another message
         </button>
@@ -86,9 +86,9 @@ export function ContactForm() {
   }
 
   return (
-    <form noValidate onSubmit={handleSubmit} className="space-y-5">
+    <form noValidate onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-ink-900">
+        <label htmlFor="name" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-ink-400">
           Full name
         </label>
         <input
@@ -98,7 +98,7 @@ export function ContactForm() {
           onChange={(e) => setForm({ ...form, name: e.target.value })}
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? "name-error" : undefined}
-          className="w-full rounded-xl border border-navy-950/15 px-4 py-3 text-sm text-ink-900 outline-none transition-colors focus:border-navy-900 focus:ring-2 focus:ring-navy-900/15"
+          className="w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink-900 outline-none transition-colors focus:border-navy-950 focus:ring-2 focus:ring-navy-950/10 shadow-2xs"
           placeholder="Your full name"
         />
         {errors.name && (
@@ -108,9 +108,9 @@ export function ContactForm() {
         )}
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-ink-900">
+          <label htmlFor="phone" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-ink-400">
             Phone number
           </label>
           <input
@@ -120,7 +120,7 @@ export function ContactForm() {
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? "phone-error" : undefined}
-            className="w-full rounded-xl border border-navy-950/15 px-4 py-3 text-sm text-ink-900 outline-none transition-colors focus:border-navy-900 focus:ring-2 focus:ring-navy-900/15"
+            className="w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink-900 outline-none transition-colors focus:border-navy-950 focus:ring-2 focus:ring-navy-950/10 shadow-2xs"
             placeholder="+91 XXXXX XXXXX"
           />
           {errors.phone && (
@@ -131,7 +131,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink-900">
+          <label htmlFor="email" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-ink-400">
             Email (optional)
           </label>
           <input
@@ -141,7 +141,7 @@ export function ContactForm() {
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="w-full rounded-xl border border-navy-950/15 px-4 py-3 text-sm text-ink-900 outline-none transition-colors focus:border-navy-900 focus:ring-2 focus:ring-navy-900/15"
+            className="w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink-900 outline-none transition-colors focus:border-navy-950 focus:ring-2 focus:ring-navy-950/10 shadow-2xs"
             placeholder="you@example.com"
           />
           {errors.email && (
@@ -153,18 +153,18 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink-900">
-          Message
+        <label htmlFor="message" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-ink-400">
+          Message / Class Enquiring About
         </label>
         <textarea
           id="message"
-          rows={4}
+          rows={3}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="w-full rounded-xl border border-navy-950/15 px-4 py-3 text-sm text-ink-900 outline-none transition-colors focus:border-navy-900 focus:ring-2 focus:ring-navy-900/15"
-          placeholder="Tell us which class you're enquiring about..."
+          className="w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink-900 outline-none transition-colors focus:border-navy-950 focus:ring-2 focus:ring-navy-950/10 shadow-2xs"
+          placeholder="Tell us which class or admission details you are seeking..."
         />
         {errors.message && (
           <p id="message-error" className="mt-1.5 text-xs text-red-600">
@@ -176,10 +176,11 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        className="w-full justify-center bg-[#25D366] text-white hover:bg-[#1fb959] sm:w-auto"
+        variant="primary"
+        className="w-full justify-center sm:w-auto"
       >
-        <WhatsAppIcon width={18} height={18} />
-        Send Enquiry via WhatsApp
+        <WhatsAppIcon width={16} height={16} />
+        <span>Send Enquiry via WhatsApp</span>
       </Button>
     </form>
   );

@@ -27,7 +27,7 @@ export function NoticesSearchGrid({ notices }: { notices: Notice[] }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search notices by title..."
-          className="w-full rounded-full border border-navy-950/15 bg-white py-3 pl-11 pr-4 text-sm text-ink-900 outline-none transition-colors focus:border-navy-900 focus:ring-2 focus:ring-navy-900/15"
+          className="w-full rounded-xl border border-line bg-white py-3 pl-11 pr-4 text-sm text-ink-900 outline-none transition-colors focus:border-navy-950 focus:ring-2 focus:ring-navy-950/10 shadow-2xs"
         />
       </div>
 
@@ -40,9 +40,9 @@ export function NoticesSearchGrid({ notices }: { notices: Notice[] }) {
           }
         />
       ) : (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col gap-4 max-w-4xl mx-auto">
           {filtered.map((notice, i) => (
-            <NoticeCard key={notice.id} notice={notice} delay={(i % 3) * 0.06} />
+            <NoticeCard key={notice.id} notice={notice} delay={i * 0.05} />
           ))}
         </div>
       )}

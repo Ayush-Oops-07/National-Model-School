@@ -10,9 +10,9 @@ export async function LatestNoticesGrid() {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="flex flex-col gap-4 max-w-4xl mx-auto">
       {notices.map((notice, i) => (
-        <NoticeCard key={notice.id} notice={notice} delay={(i % 3) * 0.08} />
+        <NoticeCard key={notice.id} notice={notice} delay={i * 0.06} />
       ))}
     </div>
   );

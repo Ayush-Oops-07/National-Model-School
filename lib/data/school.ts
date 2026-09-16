@@ -58,13 +58,13 @@ export const school = {
 } as const;
 
 export const navLinks: NavLink[] = [
+  { label: "Home", href: "/#top" },
   { label: "About", href: "/#about" },
-  { label: "Notices", href: "/notices" },
   { label: "Academics", href: "/#academics" },
-  { label: "Why Us", href: "/#why-us" },
   { label: "Facilities", href: "/#facilities" },
   { label: "Leadership", href: "/#leadership" },
   { label: "Gallery", href: "/#gallery" },
+  { label: "Notices", href: "/notices" },
   { label: "Contact", href: "/#contact" },
 ];
 
